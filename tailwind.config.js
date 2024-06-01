@@ -9,7 +9,8 @@ export default {
       colors: {
         mainPink: '#F086CC',
         white: 'white',
-        black: 'black'
+        black: 'black',
+        transparent: 'transparent'
       }
     },
   },
