@@ -1167,3 +1167,85 @@ export const data = {
     }
   ]
 }
+
+export const vacinaData = {
+  "vacinas": [
+    {
+      "nome": "dTpa ou dTpa-VIP",
+      "descrição": "Indicado para a imunização contra difteria, tétano e coqueluche. Deve-se atualizar o dTpa independentemente do intervalo prévio com dT ou TT, e reforçar a cada dez anos.",
+      "disponibilidade": 0
+    },
+    {
+      "nome": "Difteria e tétano – dT",
+      "descrição": "Para indivíduos com esquema de vacinação incompleto ou não vacinados. Inclui três doses com esquema 0-2-4 a 8 meses.",
+      "disponibilidade": 0
+    },
+    {
+      "nome": "Influenza (gripe)",
+      "descrição": "Dose única anual. Pode ser considerada uma segunda dose para imunodeprimidos e em situações epidemiológicas de risco.",
+      "disponibilidade": 0
+    },
+    {
+      "nome": "Hepatite A",
+      "descrição": "Duas doses no esquema 0-6 meses, recomendada para adultos não vacinados anteriormente e suscetíveis.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Hepatite B",
+      "descrição": "Três doses no esquema 0-1-6 meses, recomendada para adultos não vacinados anteriormente e suscetíveis.",
+      "disponibilidade": 1
+    },
+    {
+      "nome": "Hepatite A e B combinada",
+      "descrição": "Três doses no esquema 0-1-6 meses, uma opção para substituir a vacinação isolada para as hepatites A e B.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "HPV (HPV4 e HPV9)",
+      "descrição": "Três doses da HPV9 no esquema 0-1 a 2-6 meses. Recomendado para adultos com 20 anos ou mais não vacinados anteriormente. Contraindicada para gestantes.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Varicela (catapora)",
+      "descrição": "Duas doses com intervalo de um a dois meses para suscetíveis. Uso em imunodeprimidos deve ser avaliado pelo médico.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Meningocócicas conjugadas ACWY ou C",
+      "descrição": "Uma dose, com necessidade de reforços dependendo da situação epidemiológica. Na indisponibilidade da vacina ACWY, substituir pela C conjugada.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Meningocócica B",
+      "descrição": "Duas doses com intervalo mínimo de 1 mês (Bexsero) ou 6 meses (Trumenba). Indicação e necessidade de reforços dependem da situação epidemiológica.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Febre amarela",
+      "descrição": "Recomendação de duas doses. Pode ser exigida para emissão do CIVP para alguns destinos internacionais. Contraindicada em nutrizes até que o bebê complete 6 meses.",
+      "disponibilidade": 0
+    },
+    {
+      "nome": "Dengue",
+      "descrição": "Qdenga é preferencial, duas doses com intervalo de três meses. Dengvaxia recomendada para adultos soropositivos para dengue até 45 anos, três doses com intervalo de seis meses.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Covid-19",
+      "descrição": "Consultar dados atualizados sobre disponibilidade de vacinas e grupos contemplados no site gov.br/saude/pt-br/assuntos/coronavirus.",
+      "disponibilidade": 3
+    },
+    {
+      "nome": "Herpes zóster",
+      "descrição": "Recomendada a partir de 50 anos, duas doses com intervalo de dois meses. Vacinados previamente com a vacina atenuada (VZA) devem respeitar intervalo mínimo de dois meses entre as vacinas.",
+      "disponibilidade": 2
+    },
+    {
+      "nome": "Tríplice viral (sarampo, caxumba e rubéola)",
+      "descrição": "Duas doses acima de 1 ano de idade com intervalo mínimo de um mês entre elas. Considerada uma terceira dose em situações de risco epidemiológico.",
+      "disponibilidade": 0
+    }
+  ]
+}
+
+
