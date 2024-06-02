@@ -70,7 +70,7 @@ function Forms() {
             <span className="text-[15px] mt-2 mb-5">Preencha as vacinas que você tem certeza que já tomou, caso contrário, não é necessário.</span>
 
             <div className="flex flex-col items-center">
-                <ul className="grid grid-cols-2 md:grid-cols-3 grid-rows-8 md:grid-rows-5 w-full h-[200px] md:h-fit overflow-y-auto gap-y-16 md:gap-y-6 md:h-[340px]">
+                <ul className="grid grid-cols-2 md:grid-cols-3 grid-rows-8 md:grid-rows-5 w-full h-[200px] overflow-y-auto gap-y-16 md:gap-y-6 md:h-[340px]">
                   {
                     vacinas.map((vacina) => {
                       return(
