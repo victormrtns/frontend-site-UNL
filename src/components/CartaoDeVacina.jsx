@@ -13,7 +13,7 @@ const CartaoDeVacina = ({ vacinas }) => {
             <div className="bg-pink-500 text-white font-bold text-center p-2 rounded-t-lg">
               {vacina.nome}
             </div>
-            <div className="bg-pink-200 text-gray-700 p-2">
+            <div className="bg-pink-200 text-gray-700 p-2 h-[150px]">
               {vacina.resumo}
             </div>
             <div className="bg-gray-200 text-gray-700 p-2 rounded-b-lg">
