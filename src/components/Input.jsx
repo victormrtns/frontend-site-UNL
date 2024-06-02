@@ -13,7 +13,7 @@ const Input = ({type, className, name, id, placeholder, label, icon}) => {
     return ( 
         <div className="flex flex-col">
             <label htmlFor={name} className="ml-[10px]">{label}</label>
-            <div className={`flex w-[350px] h-10 px-[15px] ${className} justify-between items-center border-[2px] rounded-full border-gray-300 mt-[2px] relative`}>
+            <div className={`flex w-[250px] sm:w-[350px] h-10 px-[15px] ${className} justify-between items-center border-[2px] rounded-full border-gray-300 mt-[2px] relative`}>
 
                 {
                     (id === 'datepicker') ?

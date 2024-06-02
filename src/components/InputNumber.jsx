@@ -18,6 +18,7 @@ const InputNumber = ({className}) => {
       value={valor}
       onChange={handleChange}
       placeholder="Ex: 36"
+      id='getAge'
       className={`text-pink-600 placeholder-gray-400 focus:outline-none focus:ring focus:border-pink-400 border-b-2 border-pink-200 border-l-0 border-r-0 border-t-0 rounded-md py-2 px-4 ${className}`}
     />
   );

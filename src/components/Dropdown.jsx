@@ -23,7 +23,7 @@ const Dropdown = () => {
     }
 
     return ( 
-        <div className="flex gap-x-10">
+        <div className='flex sm:gap-x-10'>
             <div className="states">
                 <label htmlFor="" className="ml-[10px]">Estado</label>
                 <div className="flex w-[120px] h-10 px-[15px] justify-between items-center border-[2px] rounded-full border-gray-300 mt-[2px] relative" onClick={() => {setIsOpenState(!isOpenState)}}>

@@ -41,7 +41,7 @@ function Forms() {
   return (
     <>
       <Header />
-      <div className="flex flex-col items-center h-[calc(100vh-150px-48px)]  md:px-[30px] lg:px-[150px] xl:px-[362px] py-[15px] overflow-x-hidden overflow-y-hidden">
+      <div className="flex flex-col  min-h-[calc(100vh-150px-48px)] md:px-[30px] lg:px-[150px] xl:px-[280px] py-[15px] overflow-x-hidden overflow-y-hidden">
         
         <div className="flex flex-col items-center md:items-start md:flex-row md:gap-x-[40px] w-full h-auto">
           <div className="flex flex-col gap-y-2">
@@ -51,7 +51,7 @@ function Forms() {
             <Input type={"text"} placeholder={"Insira seu CPF"} className={'bg-transparent'} label={'CPF'}/>
           </div>
 
-          <div className="flex flex-col gap-y-2 mt-2 md:mt-0">
+          <div className="flex flex-col gap-y-2 mt-2 md:mt-0 ml-2 sm:ml-0">
             <Input type={"text"} placeholder={"Insira seu endereço"} className={'bg-transparent'} label={'Endereço'}/>
             <Dropdown />
           </div>
@@ -59,22 +59,22 @@ function Forms() {
 
         <div className="flex flex-col mt-7 w-fit px-7 md:px-0 md:w-[950px]">
             <div className="flex gap-x-2">
-                <Button type={`${selectedAvailability === 1 ? 'filled' : 'default'}`} border={true} className={'text-[16px] w-fit px-7 h-fit'} 
+                <Button type={`${selectedAvailability === 1 ? 'filled' : 'default'}`} border={true} className={'text-[16px]'} 
                 onClick={() => {handleClickFilter(1)}}>UBS</Button>
-                <Button type={`${selectedAvailability === 0 ? 'filled' : 'default'}`} border={true} className={'text-[16px] w-fit px-7 h-fit'} 
+                <Button type={`${selectedAvailability === 0 ? 'filled' : 'default'}`} border={true} className={'text-[16px]'} 
                 onClick={() => {handleClickFilter(0)}}>Particular</Button>
-                <Button type={`${selectedAvailability === 2 ? 'filled' : 'default'}`} border={true} className={'text-[16px] w-fit px-7 h-fit'} 
+                <Button type={`${selectedAvailability === 2 ? 'filled' : 'default'}`} border={true} className={'text-[16px]'} 
                 onClick={() => {handleClickFilter(2)}}>Todos</Button>
             </div>
 
-            <span className="text-[15px] mt-2 mb-5">Preencha as vacinas que você tem certeza que já tomou, caso contrário, não é necessário.</span>
+            <span className="text-[15px] mt-2 mb-5 pr-16 md:pr-0">Preencha as vacinas que você tem certeza que já tomou, caso contrário, não é necessário.</span>
 
-            <div className="flex flex-col items-center">
-                <ul className="grid grid-cols-2 md:grid-cols-3 grid-rows-8 md:grid-rows-5 w-full h-[200px] overflow-y-auto gap-y-16 md:gap-y-6 md:h-[340px]">
+            <div className="flex flex-col items-center md:items-start lg:items-center">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-8 md:grid-rows-5 w-fit lg:w-full h-[200px] md:h-[300px] overflow-y-auto gap-y-16 md:gap-y-2 2xl:h-[350px]">
                   {
                     vacinas.map((vacina) => {
                       return(
-                        <li className="" key={vacina.nome}>
+                        <li className="min-w-[100px] max-w-[200px]" key={vacina.nome}>
                           <VacinaItem text={vacina.nome} />
                         </li>
                       )
@@ -82,10 +82,11 @@ function Forms() {
                   }
                 </ul>
 
-                <Button type={'filled'} border={false} className="mt-2">Gerar carteirinha</Button>
             </div>
+        </div>
 
-            
+        <div className="flex justify-center w-full">
+          <Button type={'filled'} border={false} className="mt-4 text-[17px] lg:text-[19px]">Gerar carteirinha</Button>
         </div>
       </div>
       <Footer />
