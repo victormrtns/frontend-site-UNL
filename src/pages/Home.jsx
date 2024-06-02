@@ -3,16 +3,21 @@ import Button from "../components/Button"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import InputNumber from "../components/InputNumber"
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function Home() {
   const navigate = useNavigate();
 
   function handleStartForms() {
     const age = document.getElementById('getAge');
-    if(age.value != null && age.value > 0){
+    if(age.value != null && (age.value >= 20 && age.value <130)){
       localStorage.setItem('age', age.value);
       setTimeout(navigate, 0, "/forms");
     } else {
+      toast.warn("Você precisa ter no mínimo 20 anos para participar do teste.", {
+        position: "top-right"
+      });
       age.focus()
     }
   }
@@ -39,7 +44,7 @@ function Home() {
         
         <Button type={'filled'} className="mb-5 xl:mb-[30px] sm:mb-[60px] text-[19px] sm:text-[23px] lg:text-[22px]" border={false} 
         onClick={handleStartForms}>Iniciar Formulário</Button>
-
+        <ToastContainer />
       </div>
       <Footer />
     </div>

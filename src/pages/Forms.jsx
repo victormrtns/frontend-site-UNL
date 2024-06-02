@@ -8,9 +8,10 @@ import { IoCalendarOutline } from "react-icons/io5";
 
 import { vacinaData, vacinaDataIdoso } from "../assets/data";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Forms() {
-
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [age, setAge] = useState(Number.parseInt(localStorage.getItem('age')))
 
@@ -35,9 +36,10 @@ function Forms() {
       }
     }
 
-    if(selectedItemsJSON.vacinas.length > 0 && name.length > 0){
+    if(name.length > 0){
       localStorage.setItem("name", name);
       localStorage.setItem("selectedItems", JSON.stringify(selectedItemsJSON))
+      setTimeout(navigate, 0, "/cartaodevacina");
     } else {
       // TODO: criar um toast aqui para falar que é necessário no mínimo uma vacina estar selecionada
     }

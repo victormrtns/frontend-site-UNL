@@ -1247,7 +1247,6 @@ export const vacinaData = {
     }
   ]
 }
-
 export const vacinaDataIdoso = {
   "vacinas": [
     {
@@ -1320,5 +1319,4 @@ export const vacinaDataIdoso = {
     }
   ]
 }
-
 
