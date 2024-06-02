@@ -1,12 +1,12 @@
-import Button from "./components/Button";
-import Dropdown from "./components/Dropdown";
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import Input from "./components/Input"
+import Button from "../components/Button";
+import Dropdown from "../components/Dropdown";
+import Footer from "../components/Footer"
+import Header from "../components/Header"
+import Input from "../components/Input"
 
 import { IoCalendarOutline } from "react-icons/io5";
 
-import { vacinaData } from "./assets/data";
+import { vacinaData } from "../assets/data";
 import { useEffect, useState } from "react";
 
 function VacinaItem({text}){
@@ -18,7 +18,7 @@ function VacinaItem({text}){
   )
 }
 
-function App() {
+function Forms() {
 
   const [vacinas, setVacinas] = useState(vacinaData.vacinas);
   
@@ -57,7 +57,7 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-col mt-7 w-fit px-7 md:px-0">
+        <div className="flex flex-col mt-7 w-fit px-7 md:px-0 md:w-[950px]">
             <div className="flex gap-x-2">
                 <Button type={`${selectedAvailability === 1 ? 'filled' : 'default'}`} border={true} className={'text-[16px] w-fit px-7 h-fit'} 
                 onClick={() => {handleClickFilter(1)}}>UBS</Button>
@@ -70,7 +70,7 @@ function App() {
             <span className="text-[15px] mt-2 mb-5">Preencha as vacinas que você tem certeza que já tomou, caso contrário, não é necessário.</span>
 
             <div className="flex flex-col items-center">
-                <ul className="grid grid-cols-2 md:grid-cols-3 grid-rows-8 md:grid-rows-5 w-full h-[200px] md:h-fit overflow-y-auto gap-y-16 md:gap-y-6">
+                <ul className="grid grid-cols-2 md:grid-cols-3 grid-rows-8 md:grid-rows-5 w-full h-[200px] md:h-fit overflow-y-auto gap-y-16 md:gap-y-6 md:h-[340px]">
                   {
                     vacinas.map((vacina) => {
                       return(
@@ -95,4 +95,4 @@ function App() {
   
 }
 
-export default App
+export default Forms
