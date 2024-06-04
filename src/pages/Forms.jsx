@@ -87,13 +87,13 @@ function Forms() {
 
             <span className="text-[15px] mt-2 mb-5 pr-16 md:pr-0">Preencha as vacinas que você tem certeza que já tomou, caso contrário, não é necessário.</span>
             <div className="flex flex-col items-center md:items-start lg:items-center">
-                <ul className={`grid grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))] gap-x-8 items-center grid-rows-[repeat(auto-fill,_minmax(100px,_1fr))] w-full gap-y-8`}>
+                <ul className={`grid grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))] gap-x-8 items-center grid-rows-[repeat(auto-fill,_minmax(50px,_1fr))] w-full gap-y-8`}>
                   {
                     vacinas.map((vacina) => {
                       return(
                         <li className="min-w-[100px] max-w-[200px]" key={vacina.nome}>
-                          <div className="flex gap-x-1">
-                              <input type="checkbox" className="checkboxVacina" value={vacina.nome}/>
+                          <div className="flex gap-x-1 items-center">
+                              <input type="checkbox" className="checkboxVacina size-4" value={vacina.nome}/>
                               <span>{vacina.nome}</span>
                           </div>
                         </li>
