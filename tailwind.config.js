@@ -10,7 +10,10 @@ export default {
         mainPink: '#F086CC',
         white: 'white',
         black: 'black',
-        transparent: 'transparent'
+        transparent: 'transparent',
+        carteiraHeader: '#BC2689',
+        carteiraVacinaName: '#D062AB',
+        carteiraVacinaDesc: '#F388CE'
       }
     },
   },
