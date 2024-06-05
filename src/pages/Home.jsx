@@ -10,8 +10,6 @@ import { useState } from "react"
 function Home() {
   const navigate = useNavigate();
 
-  const [age, setAge] = useState('')
-
   function handleStartForms() {
     const age = document.getElementById('getAge');
     if(age.value != null && (age.value >= 20 && age.value <130)){
@@ -25,6 +23,7 @@ function Home() {
     }
   }
 
+
   return (
     <div className="h-auto sm:h-screen w-full overflow-x-hidden">
       <Header />
@@ -35,9 +34,10 @@ function Home() {
         </div>
 
         <div className="font-regular text-[14px] sm:text-[17px] md:text-[19px] lg:text-[20px] 2xl:text-[22px] 3xl:text-[25px] text-justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra.
-        Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. Et netus et malesuada fames ac turpis egestas sed. 
-        Facilisi cras fermentum odio eu feugiat pretium. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi.
+        
+Bem-vinda ao nosso app de carteirinha de vacinação! Aqui, você pode facilmente gerenciar suas vacinas.
+Preencha seus dados pessoais e selecione sua faixa etária (20-49 ou 50+). O app irá gerar uma carteirinha de vacinação personalizada, com todas as vacinas recomendadas para sua idade e histórico.
+Mantenha-se protegida, acompanhando suas vacinas de forma prática e segura!
         </div>
 
         <div className="flex flex-col items-center justify-center lg:flex-row">
