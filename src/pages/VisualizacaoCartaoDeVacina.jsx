@@ -4,10 +4,15 @@ import Button from '../components/Button'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+import { vacinaData, vacinaDataIdoso } from '../assets/data';
+
 function VisualizacaoCartaoDeVacina() {
   const [vacinas, setVacinas] = useState({});
+  const [carteirinhaData, setCarteirinhaData] = useState();
 
   const navigate = useNavigate();
+
+  const age = localStorage.getItem('age');
 
   useEffect(() => {
       var data = JSON.parse(localStorage.getItem("selectedItems"))
@@ -15,19 +20,18 @@ function VisualizacaoCartaoDeVacina() {
         nome: vacina.nome,
         resumo: vacina.descrição
       })))
+
+      setCarteirinhaData((age < 50) ? vacinaData.vacinas : vacinaDataIdoso.vacinas)
   },[])
 
   function handleAddDateLote() {
     const divsLoteData = document.getElementsByName('divLoteData');
-    let lotesByDiv = []
     let count = new Array(divsLoteData.length).fill(0)
-    
-    console.log(divsLoteData.length)
 
     divsLoteData.forEach((div, i) => {
         let vacinaContainer = div.childNodes
         let infoDivs = vacinaContainer[2].childNodes
-        // let vacina_nome = vacinaContainer[0].firstChild.textContent
+        let vacina_nome = vacinaContainer[0].firstChild.textContent
 
         let lote, data;
 
@@ -36,11 +40,23 @@ function VisualizacaoCartaoDeVacina() {
           data = infoDiv.childNodes[1].childNodes[1].value
   
           count[i] = (lote !== '' && data !== '') ? ++count[i] : count[i];
+          
+          if(lote !== '' && data !== '') {
+            setCarteirinhaData(
+              carteirinhaData.map((vacina) => {
+                if(vacina.nome === vacina_nome) {
+                  vacina.dados[j].lote = lote
+                  vacina.dados[j].data = data
+                }
+              })
+            )
+          }
 
         })
 
-        // TODO: gerar json dos dados extraidos acima, e colocar no local storage para serem utilizados na carteirinha
     })
+
+    localStorage.setItem('dados_carteirinha', JSON.stringify(carteirinhaData))
 
     let validateData = true;
 

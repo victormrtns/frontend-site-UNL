@@ -9,6 +9,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { vacinaData, vacinaDataIdoso } from "../assets/data";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Forms() {
   const navigate = useNavigate()
@@ -40,8 +41,6 @@ function Forms() {
       localStorage.setItem("name", name);
       localStorage.setItem("selectedItems", JSON.stringify(selectedItemsJSON))
       setTimeout(navigate, 0, "/cartaodevacina");
-    } else {
-      // TODO: criar um toast aqui para falar que é necessário no mínimo uma vacina estar selecionada
     }
 
   }
