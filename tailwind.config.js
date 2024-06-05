@@ -13,7 +13,8 @@ export default {
         transparent: 'transparent',
         carteiraHeader: '#BC2689',
         carteiraVacinaName: '#D062AB',
-        carteiraVacinaDesc: '#F388CE'
+        carteiraVacinaDesc: '#F388CE',
+        cateiraVacinaLotes: '#EDC1DE'
       }
     },
   },

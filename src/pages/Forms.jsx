@@ -93,7 +93,7 @@ function Forms() {
                       return(
                         <li className="min-w-[100px] max-w-[200px]" key={vacina.nome}>
                           <div className="flex gap-x-1 items-center">
-                              <input type="checkbox" className="checkboxVacina size-4" value={vacina.nome}/>
+                              <input type="checkbox" className="checkboxVacina" value={vacina.nome}/>
                               <span>{vacina.nome}</span>
                           </div>
                         </li>

@@ -1,3 +1,8 @@
+import { useRef } from 'react'
+import Button from '../components/Button'
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
+
 function CarteirinhaHeader() {
     const name = localStorage.getItem('name')
     const age = localStorage.getItem('age')
@@ -29,7 +34,7 @@ function CarteirinhaHeader() {
 
 function VacinaTitle() {
     return (
-        <div className="bg-carteiraVacinaName flex-1 h-[100px] text-white flex justify-center items-center">
+        <div className="bg-carteiraVacinaName h-[50px] text-white flex justify-center items-center">
             Nome
         </div>
     )
@@ -37,7 +42,7 @@ function VacinaTitle() {
 
 function VacinaDescription() {
     return (
-        <div className="bg-carteiraVacinaDesc flex-1 h-[200px] text-[14px] text-white flex justify-center items-center">
+        <div className="bg-carteiraVacinaDesc h-[150px] text-[14px] text-white flex justify-center items-center">
             desc
         </div>
     )
@@ -45,32 +50,84 @@ function VacinaDescription() {
 
 function VacinaLotes() {
     return (
-        <div className=""></div>
+        <div className="bg-cateiraVacinaLotes h-[400px] rounded-3xl">
+
+        </div>
     )
 }
 
 const CarteirinhaVacinaPDF = () => {
+    
+
+    const divToPrintRef = useRef();
+
+    const generatePDF = async () => {
+        const element = divToPrintRef.current;
+        const canvas = await html2canvas(element);
+        const data = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        const imgProps = pdf.getImageProperties(data);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save('CarteirinhaVacina.pdf');
+    };
+
     return ( 
-        <div className="w-screen h-screen overflow-y-hidden p-3 flex flex-col gap-1">
+        <>
+        <div className="max-w-screen h-fit overflow-x-auto overflow-y-hidden p-2 flex flex-col gap-1 items-center" ref={divToPrintRef} id="divToPrint">
             <CarteirinhaHeader />
-            <div className="flex w-full gap-1">
-                <VacinaTitle />
-                <VacinaTitle />
-                <VacinaTitle />
-                <VacinaTitle />
-                <VacinaTitle />
-                <VacinaTitle />
+
+            <div className="w-full h-full grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-x-1 gap-y-2 overflow-x-auto overflow-y-hidden">
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+
+                <div className="flex flex-col h-full gap-y-1 w-full">
+                    <VacinaTitle />
+                    <VacinaDescription />
+                    <VacinaLotes />
+                </div>
+                
             </div>
 
-            <div className="flex w-full gap-1">
-                <VacinaDescription />
-                <VacinaDescription />
-                <VacinaDescription />
-                <VacinaDescription />
-                <VacinaDescription />
-                <VacinaDescription />
-            </div>
         </div>
+        <div className="flex justify-center items-center">
+            <Button type={'filled'} border={false} className="mt-12 text-[17px] lg:text-[19px] mb-5" onClick={generatePDF}>Baixar Carteirinha</Button>
+        </div>
+        </>
     );
 }
  
