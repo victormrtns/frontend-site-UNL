@@ -1348,3 +1348,184 @@ export const vacinaDataIdoso = {
     }
   ]
 }
+
+export const vacinaDataIdosoFixed = {
+  "vacinas": [
+    {
+      "nome": "Influenza (gripe)",
+      "descrição": "Dose única anual, preferencialmente com a vacina quadrivalente de alta concentração (high dose, HD4V). Em situações epidemiológicas de risco, considerar uma segunda dose a partir de três meses após a dose anual.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "VPC13 ou VPC15 e VPP23",
+      "descrição": "Iniciar com uma dose da VPC13 ou VPC15 seguida de uma dose de VPP23 seis a 12 meses depois, e uma segunda dose de VPP23 cinco anos após a primeira.",
+      "disponibilidade": 1,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Herpes zóster",
+      "descrição": "Rotina a partir de 50 anos. Esquema: Vacina inativada (VZR) – duas doses com intervalo de dois meses (0-2). A vacinação está recomendada mesmo para aqueles que já desenvolveram a doença.",
+      "disponibilidade": 1,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "dTpa ou dTpa-VIP",
+      "descrição": "Atualizar dTpa independente de intervalo prévio com dT ou TT. Com esquema de vacinação básico completo: reforço com dTpa a cada dez anos. Não vacinados e/ou histórico vacinal desconhecido: uma dose de dTpa e duas doses de dT no esquema 0-2-4 a 8 meses.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Dupla adulto (difteria e tétano) – dT",
+      "descrição": "Com esquema de vacinação básico incompleto: uma dose de dTpa a qualquer momento e completar a vacinação básica com uma ou duas doses de dT de forma a totalizar três doses de vacina contendo o componente tetânico.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Hepatite B",
+      "descrição": "Três doses, no esquema 0-1-6 meses.",
+      "disponibilidade": 1,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Febre amarela",
+      "descrição": "Para idosos não vacinados previamente. Recomendação PNI: Se aplicada a partir dos 5 anos de idade: dose única. A partir dos 60 anos, o serviço de saúde deverá avaliar a indicação. Recomendação SBIm: Duas doses, com intervalo de 10 anos.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Vírus Sincicial Respiratório (Arexvy®)",
+      "descrição": "Uma dose, especialmente recomendada para idosos pertencentes a grupos de maior risco (cardiopata, pneumopata, diabético, nefropata e hepatopata).",
+      "disponibilidade": 1,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Covid-19",
+      "descrição": "Acesse os dados atualizados sobre a disponibilidade de vacinas e os grupos contemplados pelo PNI em gov.br/saude/pt-br/assuntos/coronavirus",
+      "disponibilidade": 0,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Hepatite A",
+      "descrição": "Duas doses, no esquema 0-6 meses. Na população com mais de 60 anos é incomum encontrar indivíduos suscetíveis.",
+      "disponibilidade": 1,
+      "situacao_especial": true,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Hepatites A e B",
+      "descrição": "Três doses, no esquema 0-1-6 meses. A vacina combinada para as hepatites A e B é uma opção e pode substituir a vacinação isolada para as hepatites A e B.",
+      "disponibilidade": 1,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Meningocócicas conjugadas ACWY ou C",
+      "descrição": "Uma dose. A indicação da vacina, assim como a necessidade de reforços, dependerão da situação epidemiológica.",
+      "disponibilidade": 1,
+      "situacao_especial": true,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Tríplice viral (sarampo, caxumba e rubéola)",
+      "descrição": "Uma dose. A indicação da vacina dependerá de risco epidemiológico e da situação individual de suscetibilidade.",
+      "disponibilidade": 1,
+      "situacao_especial": true,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    }
+  ]
+}
+
+export const vacinaDataFixed = {
+  "vacinas": [
+    {
+      "nome": "dTpa ou dTpa-VIP",
+      "descrição": "Indicado para a imunização contra difteria, tétano e coqueluche. Deve-se atualizar o dTpa independentemente do intervalo prévio com dT ou TT, e reforçar a cada dez anos.",
+      "disponibilidade": 0,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Difteria e tétano – dT",
+      "descrição": "Para indivíduos com esquema de vacinação incompleto ou não vacinados. Inclui três doses com esquema 0-2-4 a 8 meses.",
+      "disponibilidade": 0,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Influenza (gripe)",
+      "descrição": "Dose única anual. Pode ser considerada uma segunda dose para imunodeprimidos e em situações epidemiológicas de risco.",
+      "disponibilidade": 0,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Hepatite A",
+      "descrição": "Duas doses no esquema 0-6 meses, recomendada para adultos não vacinados anteriormente e suscetíveis.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Hepatite B",
+      "descrição": "Três doses no esquema 0-1-6 meses, recomendada para adultos não vacinados anteriormente e suscetíveis.",
+      "disponibilidade": 1,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Hepatite A e B combinada",
+      "descrição": "Três doses no esquema 0-1-6 meses, uma opção para substituir a vacinação isolada para as hepatites A e B.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "HPV (HPV4 e HPV9)",
+      "descrição": "Três doses da HPV9 no esquema 0-1 a 2-6 meses. Recomendado para adultos com 20 anos ou mais não vacinados anteriormente. Contraindicada para gestantes.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Varicela (catapora)",
+      "descrição": "Duas doses com intervalo de um a dois meses para suscetíveis. Uso em imunodeprimidos deve ser avaliado pelo médico.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Meningocócicas conjugadas ACWY ou C",
+      "descrição": "Uma dose, com necessidade de reforços dependendo da situação epidemiológica. Na indisponibilidade da vacina ACWY, substituir pela C conjugada.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Meningocócica B",
+      "descrição": "Duas doses com intervalo mínimo de 1 mês (Bexsero) ou 6 meses (Trumenba). Indicação e necessidade de reforços dependem da situação epidemiológica.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Febre amarela",
+      "descrição": "Recomendação de duas doses. Pode ser exigida para emissão do CIVP para alguns destinos internacionais. Contraindicada em nutrizes até que o bebê complete 6 meses.",
+      "disponibilidade": 0,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Dengue",
+      "descrição": "Qdenga é preferencial, duas doses com intervalo de três meses. Dengvaxia recomendada para adultos soropositivos para dengue até 45 anos, três doses com intervalo de seis meses.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Covid-19",
+      "descrição": "Consultar dados atualizados sobre disponibilidade de vacinas e grupos contemplados no site gov.br/saude/pt-br/assuntos/coronavirus.",
+      "disponibilidade": 3,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Herpes zóster",
+      "descrição": "Recomendada a partir de 50 anos, duas doses com intervalo de dois meses. Vacinados previamente com a vacina atenuada (VZA) devem respeitar intervalo mínimo de dois meses entre as vacinas.",
+      "disponibilidade": 2,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    },
+    {
+      "nome": "Tríplice viral (sarampo, caxumba e rubéola)",
+      "descrição": "Duas doses acima de 1 ano de idade com intervalo mínimo de um mês entre elas. Considerada uma terceira dose em situações de risco epidemiológico.",
+      "disponibilidade": 0,
+      "dados": [{lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}, {lote: "", data: ""}]
+    }
+  ]
+}
