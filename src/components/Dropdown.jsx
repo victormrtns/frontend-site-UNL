@@ -14,7 +14,29 @@ const Dropdown = () => {
     
     useEffect(() => {
         setStateList(data.estados.sort())
+        const savedState = localStorage.getItem('chosenState');
+        const savedCity = localStorage.getItem('chosenCity');
+        if (savedState) {
+            const stateObj = JSON.parse(savedState);
+            setChosenState(stateObj);
+            setCityList(stateObj.cidades.sort());
+        }
+        if (savedCity) {
+            setChosenCity(savedCity);
+        }
     }, [])
+
+    useEffect(() => {
+        if (chosenState) {
+            localStorage.setItem('chosenState', JSON.stringify(chosenState));
+        }
+    }, [chosenState]);
+
+    useEffect(() => {
+        if (chosenCity) {
+            localStorage.setItem('chosenCity', chosenCity);
+        }
+    }, [chosenCity]);
 
     function handleChangeState(item) {
         setIsOpenState(false)

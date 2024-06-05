@@ -15,7 +15,8 @@ function Forms() {
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [age, setAge] = useState(Number.parseInt(localStorage.getItem('age')))
-
+  const [address, setAddress] = useState('')
+  const [date, setDate] = useState('')
   const [vacinas, setVacinas] = useState((age < 50) ? vacinaData.vacinas : vacinaDataIdoso.vacinas);
   
   const [selectedAvailability, setSelectedAvailability] = useState(2);
@@ -27,6 +28,8 @@ function Forms() {
   function handleFilterBySelection() {
     const selectedItemsInput = document.getElementsByClassName('checkboxVacina');
     const name = document.getElementById('inputName').value;
+    const address = document.getElementById('inputAddress').value;
+    const date = document.getElementById('inputDate').value;
     let selectedItemsJSON = {
       "vacinas": []
     }
@@ -39,8 +42,19 @@ function Forms() {
 
     if(name.length > 0){
       localStorage.setItem("name", name);
+      localStorage.setItem("address", address);
+      localStorage.setItem("date", date);
       localStorage.setItem("selectedItems", JSON.stringify(selectedItemsJSON))
-      setTimeout(navigate, 0, "/cartaodevacina");
+      if(selectedItemsJSON.vacinas.length > 0){
+        setTimeout(navigate, 0, "/cartaodevacina");
+      }
+      else{
+        setTimeout(navigate, 0, "/carteirinhavacina");
+      }
+    } else {
+        toast.error("Você precisa ter no mínimo 20 anos para participar do teste.", {
+          position: "top-right"
+        });
     }
 
   }
@@ -55,6 +69,26 @@ function Forms() {
     }
    }, [selectedAvailability, age])
 
+   useEffect(() => {
+    const savedName = localStorage.getItem('name');
+    const savedAddress = localStorage.getItem('address');
+    const savedDate = localStorage.getItem('date');
+    const name_input = document.getElementById('inputName')
+    const address_input = document.getElementById('inputAddress')
+    const date_input = document.getElementById('inputDate')
+    if (savedName) {
+      name_input.value = savedName;
+    }
+    if (savedAddress) {
+      address_input.value = savedAddress;
+      setAddress(address_input.value)
+    }
+    if(savedDate) {
+      date_input.value = savedDate;
+      setDate(savedDate)
+    }
+  }, []);
+
   return (
     <>
       <Header />
@@ -63,13 +97,13 @@ function Forms() {
         <div className="flex flex-col items-center md:items-start md:flex-row md:gap-x-[40px] w-full h-auto">
           <div className="flex flex-col gap-y-2">
             <Input type={"text"} placeholder={"Insira seu nome"} className={'bg-transparent'} label={'Nome'} id={"inputName"}/>
-            <Input type={"text"} placeholder={"__ / __ / ____"} className={'bg-transparent'} label={'Data nascimento'} id={'datepicker'}
+            <Input type={"date"} placeholder={"__ / __ / ____"} className={'bg-transparent'} label={'Data nascimento'} id={'inputDate'}
                   icon={<IoCalendarOutline size={23} className="fill-mainPink text-mainPink icon-calendar"/>}/>
             <Input type={"text"} placeholder={"Insira seu CPF"} className={'bg-transparent'} label={'CPF'}/>
           </div>
 
           <div className="flex flex-col gap-y-2 mt-2 md:mt-0 ml-2 sm:ml-0">
-            <Input type={"text"} placeholder={"Insira seu endereço"} className={'bg-transparent'} label={'Endereço'}/>
+            <Input type={"text"} placeholder={"Insira seu endereço"} className={'bg-transparent'} label={'Endereço'} id={"inputAddress"}/>
             <Dropdown />
           </div>
         </div>
