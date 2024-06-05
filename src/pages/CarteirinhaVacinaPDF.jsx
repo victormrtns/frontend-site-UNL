@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '../components/Button'
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
+import html2pdf from 'html2pdf.js'
+import CarteirinhaNoResponsivePDF from './CarteirinhaNoResponsivePDF'
 
 function CarteirinhaHeader() {
     const name = localStorage.getItem('name')
@@ -55,25 +55,25 @@ const CarteirinhaVacinaPDF = () => {
 
     useEffect(() => {
         setCarteirinhaData(JSON.parse(localStorage.getItem('dados_carteirinha')))
-    }, [])
+    }, [localStorage.getItem('dados_carteirinha')])
 
-    const divToPrintRef = useRef();
+    function generatePDF() {
+        const content = document.getElementById('divToPdf');
 
-    const generatePDF = async () => {
-        const element = divToPrintRef.current;
-        const canvas = await html2canvas(element);
-        const data = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        const imgProps = pdf.getImageProperties(data);
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-        pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save('CarteirinhaVacina.pdf');
-    };
+        const options = {
+            margin: [10, 10, 10, 10],
+            filename: "carteirinha.pdf",
+            html2canvas: {scale: 2},
+            jsPDF: {unit: "mm", format: "a1", orientation: "landscape"}
+        }
+
+        html2pdf().set(options).from(content).save();
+
+    }
 
     return ( 
         <>
-        <div className="max-w-screen h-fit overflow-x-auto overflow-y-hidden p-2 flex flex-col gap-1 items-center" ref={divToPrintRef} id="divToPrint">
+        <div className="max-w-screen h-fit overflow-x-auto overflow-y-hidden p-2 flex flex-col gap-1 items-center">
             <CarteirinhaHeader />
 
             <div className="w-full h-full grid grid-cols-[repeat(auto-fill,_minmax(230px,_1fr))] gap-x-1 gap-y-2 overflow-x-auto overflow-y-hidden">
@@ -103,6 +103,10 @@ const CarteirinhaVacinaPDF = () => {
         </div>
         <div className="flex justify-center items-center">
             <Button type={'filled'} border={false} className="mt-12 text-[17px] lg:text-[19px] mb-5" onClick={generatePDF}>Baixar Carteirinha</Button>
+        </div>
+
+        <div className="hidden">
+            <CarteirinhaNoResponsivePDF />
         </div>
         </>
     );

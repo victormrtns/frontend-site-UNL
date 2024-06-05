@@ -49,6 +49,7 @@ function Forms() {
         setTimeout(navigate, 0, "/cartaodevacina");
       }
       else{
+        localStorage.setItem("dados_carteirinha",JSON.stringify((age < 50) ? vacinaData.vacinas : vacinaDataIdoso.vacinas));
         setTimeout(navigate, 0, "/carteirinhavacina");
       }
     } else {
@@ -76,6 +77,7 @@ function Forms() {
     const name_input = document.getElementById('inputName')
     const address_input = document.getElementById('inputAddress')
     const date_input = document.getElementById('inputDate')
+    localStorage.setItem("dados_carteirinha",JSON.stringify((age < 50) ? vacinaData.vacinas : vacinaDataIdoso.vacinas));
     if (savedName) {
       name_input.value = savedName;
     }

@@ -55,7 +55,7 @@ function VisualizacaoCartaoDeVacina() {
         })
 
     })
-
+    
     localStorage.setItem('dados_carteirinha', JSON.stringify(carteirinhaData))
 
     let validateData = true;

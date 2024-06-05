@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '../components/Button'
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
+
+import html2pdf from 'html2pdf.js'
 
 function CarteirinhaHeader() {
     const name = localStorage.getItem('name')
     const age = localStorage.getItem('age')
 
     return (
-        <div className="bg-carteiraHeader w-[1920px] h-[170px] rounded-3xl flex flex-row py-2 items-center justify-between px-28">
-            <h1 className="text-white text-[60px] font-bold mb-8">Carteirinha de Vacinação</h1>
+        <div className="bg-carteiraHeader w-full h-[170px] rounded-3xl flex flex-row py-2 items-center justify-between px-28">
+            <h1 className="text-white text-[60px] font-bold">Carteirinha de Vacinação</h1>
             
-            <div className="flex flex-col text-[30px] text-white font-bold w-[250px] sm:w-[330px] gap-y-5 mb-6">
+            <div className="flex flex-col text-[30px] text-white font-bold w-[250px] sm:w-[330px] gap-y-5">
                 <h3 className="flex gap-x-3 w-full">
                     Nome:
                     <span className="relative w-full h-5">
@@ -32,7 +32,7 @@ function CarteirinhaHeader() {
 
 function VacinaTitle({children}) {
     return (
-        <div className="bg-carteiraVacinaName h-[150px] w-[310px] text-[23px] text-white flex justify-center items-center">
+        <div className="bg-carteiraVacinaName h-[250px] w-full text-[27px] text-white flex justify-center items-center">
             {children}
         </div>
     )
@@ -40,7 +40,7 @@ function VacinaTitle({children}) {
 
 function VacinaDescription({children}) {
     return (
-        <div className="bg-carteiraVacinaDesc h-[400px] w-[310px] text-[18px] text-white flex justify-center items-center px-3">
+        <div className="bg-carteiraVacinaDesc h-[400px] w-full text-[23px] text-white flex justify-center items-center text-pretty px-6">
             {children}
         </div>
     )
@@ -54,42 +54,37 @@ const CarteirinhaNoResponsivePDF = () => {
         setCarteirinhaData(JSON.parse(localStorage.getItem('dados_carteirinha')))
     }, [])
 
-    const pdfRef = useRef();
+    function generatePDF() {
+        const content = document.getElementById('divToPdf');
 
-    const generatePDF = async () => {
-      const input = pdfRef.current;
-      html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4', true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 30;
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-      pdf.save('invoice.pdf');
-  });
-    };
+        const options = {
+            margin: [10, 10, 10, 10],
+            filename: "carteirinha.pdf",
+            html2canvas: {scale: 2},
+            jsPDF: {unit: "mm", format: "a1", orientation: "landscape"}
+        }
+
+        html2pdf().set(options).from(content).save();
+
+    }
 
     return ( 
         <>
-        <div id="capture" ref={pdfRef} className="w-[1920px] h-[1600px] overflow-x-hidden overflow-y-hidden p-2 flex flex-col gap-1 items-center">
+        <div id="divToPdf" className="w-[3100px] h-[2100px] overflow-x-hidden overflow-y-hidden p-2 flex flex-col gap-1 items-center">
             <CarteirinhaHeader />
 
-            <div className="w-[1920px] h-[1250px] grid grid-rows-3 grid-cols-6 gap-x-1 gap-y-2 overflow-x-hidden">
+            <div className="w-full h-full grid grid-rows-3 grid-cols-5 gap-x-1 gap-y-2 overflow-x-hidden">
                 
                 {carteirinhaData?.map((vacina) => {
                     return (
-                        <div className="flex flex-col h-[400px] gap-y-1 w-full" key={vacina.descrição}>
+                        <div className="flex flex-col h-[630px] gap-y-1 w-full" key={vacina.descrição}>
                             <VacinaTitle>{vacina.nome}</VacinaTitle>
                             <VacinaDescription>{vacina.descrição}</VacinaDescription>
-                            <div className="bg-cateiraVacinaLotes h-[800px] w-[310px] rounded-3xl flex flex-col p-3">
+                            <div className="bg-cateiraVacinaLotes h-[800px] w-full rounded-3xl flex flex-col p-3">
                                 {
                                     vacina.dados?.map((dado) => {
                                         return (
-                                            <div className="flex flex-col flex-1" key={`${dado.lote}${dado.data}`}>
+                                            <div className="flex flex-col flex-1 text-[20px]" key={`${dado.lote}${dado.data}`}>
                                                 <span><b>Lote:</b> {dado.lote}</span>
                                                 <span><b>Data:</b> {dado.data}</span>
                                             </div>
