@@ -5,9 +5,12 @@ import Header from "../components/Header"
 import InputNumber from "../components/InputNumber"
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react"
 
 function Home() {
   const navigate = useNavigate();
+
+  const [age, setAge] = useState('')
 
   function handleStartForms() {
     const age = document.getElementById('getAge');

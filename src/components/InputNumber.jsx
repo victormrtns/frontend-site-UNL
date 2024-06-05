@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const InputNumber = ({className}) => {
   const [valor, setValor] = useState('');
+  const [age, setAge] = useState((Number.parseInt(localStorage.getItem('age')) !=null)?Number.parseInt(localStorage.getItem('age')):"");
 
   const handleChange = (e) => {
     const novoValor = e.target.value;
-
-    // Verifica se o novo valor é um número inteiro
     if (/^\d*$/.test(novoValor)) {
       setValor(novoValor);
+      setAge(novoValor);
     }
   };
-
+  useEffect(()=>{
+    const age_input = document.getElementById('getAge')
+    age_input.value = age;
+  },[])
   return (
     <input
       type="text"
