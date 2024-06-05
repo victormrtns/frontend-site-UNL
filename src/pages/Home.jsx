@@ -15,7 +15,7 @@ function Home() {
       localStorage.setItem('age', age.value);
       setTimeout(navigate, 0, "/forms");
     } else {
-      toast.warn("Você precisa ter no mínimo 20 anos para participar do teste.", {
+      toast.warn("Você precisa ter no mínimo 20 anos para seguir pra próxima etapa", {
         position: "top-right"
       });
       age.focus()
