@@ -6,7 +6,7 @@ import Input from "../components/Input"
 
 import { IoCalendarOutline } from "react-icons/io5";
 
-import { vacinaData, vacinaDataIdoso } from "../assets/data";
+import { vacinaData, vacinaDataIdoso, vacinaDataFixed, vacinaDataIdosoFixed } from "../assets/data";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -18,6 +18,8 @@ function Forms() {
   const [address, setAddress] = useState('')
   const [date, setDate] = useState('')
   const [vacinas, setVacinas] = useState((age < 50) ? vacinaData.vacinas : vacinaDataIdoso.vacinas);
+
+  const fixed_vacinas = (age < 50) ? vacinaDataFixed.vacinas : vacinaDataIdosoFixed.vacinas;
   
   const [selectedAvailability, setSelectedAvailability] = useState(2);
 
@@ -45,11 +47,16 @@ function Forms() {
       localStorage.setItem("address", address);
       localStorage.setItem("date", date);
       localStorage.setItem("selectedItems", JSON.stringify(selectedItemsJSON))
-      if(selectedItemsJSON.vacinas.length > 0){
+
+      let selectedAtt = JSON.parse(localStorage.getItem('selectedItems'))
+      console.log(selectedAtt)
+      if(selectedAtt.vacinas.length > 0){
         setTimeout(navigate, 0, "/cartaodevacina");
       }
       else{
-        localStorage.setItem("dados_carteirinha",JSON.stringify((age < 50) ? vacinaData.vacinas : vacinaDataIdoso.vacinas));
+        localStorage.removeItem("dados_carteirinha");
+        console.log(fixed_vacinas)
+        localStorage.setItem("dados_carteirinha",JSON.stringify(fixed_vacinas));
         setTimeout(navigate, 0, "/carteirinhavacina");
       }
     } else {
